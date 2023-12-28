@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snackstation</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Ubuntu&family=Varela+Round&family=Whisper&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Varela Round', sans-serif;
+            font-weight: bolder;
+        }
+
+        .navbar {
+            position: relative;
+            left: 0;
+            top: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: baseline;
+            background-color: rgba(16, 16, 26, 0.8);
+            font-size: 30px;
+            padding-bottom: 5px;
+            color: bisque;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: bisque;
+        }
+
+        .navbar:hover {
+            cursor: pointer;
+            font-size: 30.5px;
+        }
+
+        .nametag {
+            font-family: 'Whisper', cursive;
+            color: rgb(157, 29, 29);
+            font-size: 65px;
+            font-weight: 600;
+            margin-top: 5px;
+            margin-left: 5px;
+            width: 321px;
+            background-color: rgba(255, 255, 255);
+            border: 2px solid rgb(157, 29, 29);
+            border-radius: 2rem;
+        }
+
+        .searchbar {
+            display: flex;
+            align-content: center;
+            width: 45%;
+            margin: 25px 28%;
+            max-width: 100%;
+            height: 40px;
+        }
+
+        .searchbar input[type=text] {
+            width: 92%;
+            font-size: large;
+            font-weight: normal;
+            text-align: center;
+            font-family: cursive;
+            border: 1px solid grey;
+            border-radius: 0.8rem;
+            float: left;
+            background: #f1f1f1;
+        }
+
+        .searchbar button {
+            float: left;
+            border: 1px solid grey;
+            border-radius: 0.8rem;
+            background: rgb(255, 202, 137);
+            cursor: pointer;
+            width: 8%;
+        }
+
+        .searchbar button:hover {
+            background: #f3b269;
+        }
+
+        .searchbar::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        #fasearch {
+            width: 50px;
+            font-size: large;
+            border-radius: 1rem;
+        }
+
+        .bg {
+            width: 100%;
+            height: 530px;
+            background-color: rgba(16, 16, 26, 0.85);
+        }
+
+        #slideshow {
+            list-style-type: none;
+        }
+
+        #slideshow,
+        #slideshow:after {
+            position: relative;
+            width: 55%;
+            height: 85%;
+            left: 24%;
+            top: 8%;
+            z-index: 0;
+        }
+
+        #slideshow li span {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 0;
+            animation: imageAnimation 25s linear infinite 0s;
+        }
+
+        #slideshow li:nth-child(1) span {
+            background-image: url("Pizza.jpg");
+        }
+
+        #slideshow li:nth-child(2) span {
+            background-image: url("sandwich.jpg");
+            animation-delay: 6s;
+        }
+
+        #slideshow li:nth-child(3) span {
+            background-image: url("kathiroll.jpg");
+            animation-delay: 12s;
+        }
+
+        #slideshow li:nth-child(4) span {
+            background-image: url("burger.jpg");
+            animation-delay: 18s;
+        }
+
+        @keyframes imageAnimation {
+            0% {
+                opacity: 0;
+                animation-timing-function: ease-in;
+            }
+
+            8% {
+                opacity: 1;
+                animation-timing-function: ease-out;
+            }
+
+            17% {
+                opacity: 1
+            }
+
+            25% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        .no-cssanimations .cb-slideshow li span {
+            opacity: 1;
+        }
+
+        #menutable {
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            width: 95%;
+            height: 85%;
+            left: 5%;
+            top: 10%;
+            z-index: 0;
+        }
+
+        #menutable h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: rgb(157, 29, 29);
+        }
+
+        #menutable li {
+            font-size: large;
+            margin-top: 12px;
+            margin-right: 50px;
+            color: bisque;
+        }
+
+        #aboutus {
+            color: bisque;
+            display: inline-block;
+            margin: 117px 74px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: x-large;
+            font-style: italic;
+        }
+
+        #contactus {
+            display: inline-block;
+            margin: 117px 74px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: x-large;
+            font-style: italic;
+            color: bisque;
+        }
+
+        .mfooter {
+            position: absolute;
+            padding: 5px 0px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: fit-content;
+            color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(16, 16, 26, 0.85);
+            text-align: center;
+            font-size: smaller;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(4690699.jpg); background-size:cover;">
+    <navbar>
+        <div class="navbar">
+            <div class="nametag">Snacks Station</div>
+            <a href="snackstation.html">Home</a>
+            <option onclick="divMenu()">Menu</option>
+            <option onclick="aboutUs()">About Us</option>
+            <option onclick="contactUs()">Contact Us</option>
+        </div>
+    </navbar>
+    <main>
+        <form class="searchbar" action="/action_page.php">
+            <input type="text" placeholder="Search.." name="search2">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="bg">
+            <ul id="slideshow">
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+                <li><span></span></li>
+            </ul>
+            <span id="menutable" style="display:none;">
+                <h1>Pizzas
+                    <li>Blazing Onion & Paprika</li>
+                    <li>Fiery Sausage & Paprika</li>
+                    <li>Margherita</li>
+                    <li>Farmhouse</li>
+                    <li>Peppy Paneer</li>
+                    <li>Veg Extravaganza</li>
+                    <li>Veggie Paradise</li>
+                    <li>Cheese n Corn</li>
+                    <li>Pepper Barbecue Chicken</li>
+                </h1>
+                <h1>Burgers
+                    <li>Crispy Veg Burger</li>
+                    <li>BK Chicken Burger</li>
+                    <li>Veg Makhani Burst Burger</li>
+                    <li>Crispy Chicken Burger</li>
+                    <li>Double Patty Veg</li>
+                    <li>Double Patty Chicken</li>
+                </h1>
+                <h1>Wraps
+                    <li>Panner Royale Wrap</li>
+                    <li>Fiery Chicken Wrap</li>
+                    <li>Vegggie Aloo Wrap</li>
+                    <li>Veg Crunchy Taco</li>
+                </h1>
+                <h1>Sandwiches
+                    <li>Mayo & Veggie Simple</li>
+                    <li>Veggie Grilled</li>
+                    <li>Cheese Grilled</li>
+                    <li>Mixed Grilled Large</li>
+                </h1>
+                <h1>Soft Drinks
+                    <li>Coffee</li>
+                    <li>Cold Blended Coffee(220ml)</li>
+                    <li>Lemonade(230ml)</li>
+                    <li>Minty Chocolate Shake(220ml)</li>
+                    <li>Cold Drink Small(200ml)</li>
+                    <li>Cold Drink Large(400ml)</li>
+                </h1>
+            </span>
+            <span id="aboutus" style="display: none;">We believe that when you eat fresh, you think fresh; and we bring
+                this fresh thinking in all our endeavours. We are committed to innovating better, healthier,
+                high-quality food that delights our customers.<br>We are dedicated to fostering positive impact by
+                providing sustainable livelihoods to our suppliers and meaningful careers to our team.<br>
+                At Snacks Station, we don’t just serve snacks. We make people happy. Snacks Station was built on the
+                belief that every snack should be special, and we carry that belief into everything we do. With more
+                than 5 years of experience under our belts, we understand how to best serve our customers through tried
+                and true service principles: We create food we’re proud to serve and deliver it fast, with a smile.
+            </span>
+            <div id="contactus" style="display: none;">
+                <address>36 Place D Armes, 71150, Chagny France</address>
+                <p>E-mail : reception@snacksst.in</p>
+                <a href="tel: 9982400009">mob.-9982400009</a><br>
+                <a href="#" onClick="window.open('http://www.facebook.com', '_blank')"><i class="fa 
+fa-facebook"></i></a>
+                <a href="#" onClick="window.open('http://www.instagram.com', '_blank')"><i
+                        class="fa fa-instagram"></i></a>
+                <a href="#" onClick="window.open('http://www.twitter.com', '_blank')"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="mfooter">By continuing past this page, you agree to our Terms of Service, Cookie Policy, Privacy
+            Policy and Content Policies. All trademarks are properties of their respective owners. 2008-2023 © Snacks
+            Station™
+            Ltd. All rights reserved.</div>
+    </footer>
+</body>
+<script>
+    function divMenu() {
+        document.getElementById("slideshow").style = "display:none"
+        document.getElementById("aboutus").style = "display:none"
+        document.getElementById("contactus").style = "display:none"
+        document.getElementById("menutable").style = "display:true";
+    }
+    function aboutUs() {
+        document.getElementById("slideshow").style = "display:none"
+        document.getElementById("menutable").style = "display:none"
+        document.getElementById("contactus").style = "display:none"
+        document.getElementById("aboutus").style = "display:true";
+    }
+    function contactUs() {
+        document.getElementById("slideshow").style = "display:none"
+        document.getElementById("menutable").style = "display:none"
+        document.getElementById("aboutus").style = "display:none";
+        document.getElementById("contactus").style = "display:true"
+    }
+</script>
+
+</html>
